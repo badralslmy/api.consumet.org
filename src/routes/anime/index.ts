@@ -13,6 +13,11 @@ import marin from './marin';
 import anix from './anix';
 import animekai from './animekai';
 
+// === تعطيل AnimeOwl ===
+PROVIDERS_LIST.ANIME = PROVIDERS_LIST.ANIME.filter(
+  (provider: any) => provider.toString.name !== 'AnimeOwl'
+);
+
 const routes = async (fastify: FastifyInstance, options: RegisterOptions) => {
   await fastify.register(gogoanime, { prefix: '/gogoanime' });
   await fastify.register(animepahe, { prefix: '/animepahe' });
